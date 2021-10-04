@@ -1,0 +1,4 @@
+resources: 
+  - product-deployment.yaml
+  - product-service.yaml
+  

@@ -1,0 +1,23 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nautible-app-product
+  labels:
+    app.kubernetes.io/name: nautible-app-product
+    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: app
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/component: app
+  ports:
+    - name: nautible-app-product-port
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+status:
+  loadBalancer: {}

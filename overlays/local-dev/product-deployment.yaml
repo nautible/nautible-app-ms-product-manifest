@@ -1,0 +1,43 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nautible-app-product
+  labels:
+    app.kubernetes.io/name: nautible-app-product
+    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: app
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: nautible-app-product
+          image: ogis/nautible-app-product:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: QUARKUS_PROFILE
+              value: local-dev
+            - name: JAVA_ENABLE_DEBUG
+              value: "true"
+            - name: JAVA_DEBUG_PORT
+              value: "5005"
+            - name: DB_HOST
+              value: nautible-app-product-mysql
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: DATABASE_USER
+            - name: DB_PW
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DATABASE_PW
+          ports:
+            - name: jvm-debug
+              protocol: TCP
+              containerPort: 5005
+

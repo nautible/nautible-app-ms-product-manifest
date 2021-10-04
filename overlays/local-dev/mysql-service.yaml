@@ -1,0 +1,22 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nautible-app-product-mysql
+  labels:
+    app.kubernetes.io/name: nautible-app-product-mysql
+    app.kubernetes.io/instance: nautible-app-product-mysql-1
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  clusterIP: None
+  selector:
+    app.kubernetes.io/instance: nautible-app-product-mysql-1
+    app.kubernetes.io/component: database
+  ports:
+  - name: nautible-app-product-mysql-port
+    port: 3306
+    targetPort: 3306
+status:
+  loadBalancer: {}
