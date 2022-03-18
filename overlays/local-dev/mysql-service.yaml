@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nautible-app-product-mysql
+  name: nautible-app-ms-product-mysql
   labels:
-    app.kubernetes.io/name: nautible-app-product-mysql
-    app.kubernetes.io/instance: nautible-app-product-mysql-1
+    app.kubernetes.io/name: nautible-app-ms-product-mysql
+    app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: database
     app.kubernetes.io/part-of: nautible
@@ -12,10 +12,10 @@ metadata:
 spec:
   clusterIP: None
   selector:
-    app.kubernetes.io/instance: nautible-app-product-mysql-1
+    app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
     app.kubernetes.io/component: database
   ports:
-  - name: nautible-app-product-mysql-port
+  - name: nautible-app-ms-product-mysql-port
     port: 3306
     targetPort: 3306
 status:
