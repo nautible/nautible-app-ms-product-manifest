@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: nautible-app-product-gateway
+  name: nautible-app-ms-product-gateway
   namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: nautible-app-ms-product-gateway
@@ -25,7 +25,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: nautible-app-ms-product-vs
-  namespace: nautible-app
+  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: nautible-app-ms-product-vs
     app.kubernetes.io/instance: nautible-app-ms-product-vs
