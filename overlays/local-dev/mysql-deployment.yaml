@@ -2,7 +2,6 @@ kind: StatefulSet
 apiVersion: apps/v1
 metadata:
   name: nautible-app-ms-product-mysql-sts
-  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: nautible-app-ms-product-mysql
     app.kubernetes.io/instance: nautible-app-ms-product-mysql-1

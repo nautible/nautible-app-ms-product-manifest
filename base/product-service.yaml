@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: nautible-app-ms-product
-  namespace: nautible-app-ms
   labels:
     app.kubernetes.io/name: nautible-app-ms-product
     app.kubernetes.io/instance: nautible-app-ms-product
