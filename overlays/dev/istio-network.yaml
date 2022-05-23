@@ -1,11 +1,11 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
-  name: nautible-app-product-gateway
-  namespace: nautible-app
+  name: nautible-app-ms-product-gateway
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-product-gateway
-    app.kubernetes.io/instance: nautible-app-product-gateway
+    app.kubernetes.io/name: nautible-app-ms-product-gateway
+    app.kubernetes.io/instance: nautible-app-ms-product-gateway
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: gateway
     app.kubernetes.io/part-of: nautible
@@ -24,11 +24,11 @@ spec:
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: nautible-app-product-vs
-  namespace: nautible-app
+  name: nautible-app-ms-product-vs
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-product-vs
-    app.kubernetes.io/instance: nautible-app-product-vs
+    app.kubernetes.io/name: nautible-app-ms-product-vs
+    app.kubernetes.io/instance: nautible-app-ms-product-vs
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: virtualservice
     app.kubernetes.io/part-of: nautible
@@ -37,15 +37,15 @@ spec:
   hosts:
   - "*"
   gateways:
-  - nautible-app-product-gateway
+  - nautible-app-ms-product-gateway
   http:
   - match:
     - uri:
-        prefix: /api/v1.0/nautible-app/product
+        prefix: /api/v1.0/nautible-app-ms/product
     rewrite:
       uri: "/products"
     route:
     - destination:
-        host: nautible-app-product
+        host: nautible-app-ms-product
         port:
           number: 8080

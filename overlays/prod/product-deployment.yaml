@@ -1,10 +1,11 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: nautible-app-product
+  name: nautible-app-ms-product
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app
-    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/name: nautible-app-ms
+    app.kubernetes.io/instance: nautible-app-ms-product
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: app
     app.kubernetes.io/part-of: nautible
@@ -14,7 +15,7 @@ spec:
   template:
     spec:
       containers:
-        - name: nautible-app-product
+        - name: nautible-app-ms-product
           imagePullPolicy: Always
           env:
             - name: DB_HOST

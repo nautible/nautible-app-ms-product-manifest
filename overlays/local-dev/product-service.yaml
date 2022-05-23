@@ -1,17 +1,18 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nautible-app-product
+  name: nautible-app-ms-product
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-product
-    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/name: nautible-app-ms-product
+    app.kubernetes.io/instance: nautible-app-ms-product
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: app
     app.kubernetes.io/part-of: nautible
     app.kubernetes.io/managed-by: manual
 spec:
   ports:
-    - name: nautible-app-product-debug-port
+    - name: nautible-app-ms-product-debug-port
       protocol: TCP
       port: 5005
       targetPort: 5005

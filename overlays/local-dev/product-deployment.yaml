@@ -1,10 +1,11 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: nautible-app-product
+  name: nautible-app-ms-product
+  namespace: nautible-app-ms
   labels:
-    app.kubernetes.io/name: nautible-app-product
-    app.kubernetes.io/instance: nautible-app-product
+    app.kubernetes.io/name: nautible-app-ms-product
+    app.kubernetes.io/instance: nautible-app-ms-product
     app.kubernetes.io/version: 1.0.0
     app.kubernetes.io/component: app
     app.kubernetes.io/part-of: nautible
@@ -14,8 +15,8 @@ spec:
   template:
     spec:
       containers:
-        - name: nautible-app-product
-          image: ogis/nautible-app-product:latest
+        - name: nautible-app-ms-product
+          image: ogis/nautible-app-ms-product:latest
           imagePullPolicy: IfNotPresent
           env:
             - name: QUARKUS_PROFILE
@@ -25,7 +26,7 @@ spec:
             - name: JAVA_DEBUG_PORT
               value: "5005"
             - name: DB_HOST
-              value: nautible-app-product-mysql
+              value: nautible-app-ms-product-mysql
             - name: DB_USER
               valueFrom:
                 configMapKeyRef:
