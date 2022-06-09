@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: nautible-app-ms-product
-          image: public.ecr.aws/nautible/nautible-app-ms-product:e780c72ce3bed5a76b59e0cfcca33053e1111fb0
+          image: public.ecr.aws/nautible/nautible-app-ms-product:dummy
           imagePullPolicy: Always
           ports:
             - name: http
