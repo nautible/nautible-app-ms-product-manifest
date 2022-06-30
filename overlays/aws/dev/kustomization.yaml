@@ -1,5 +1,5 @@
 bases:
-  - ../../base
+  - ../../../base
 patchesStrategicMerge:
   - product-deployment.yaml
 resources:
