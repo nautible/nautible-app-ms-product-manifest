@@ -1,5 +1,5 @@
 bases:
-  - ../../base
+  - ../../../base
 resources:
   - mysql-configmap.yaml
   - mysql-deployment.yaml

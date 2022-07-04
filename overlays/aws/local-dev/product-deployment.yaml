@@ -3,21 +3,12 @@ apiVersion: apps/v1
 metadata:
   name: nautible-app-ms-product
   namespace: nautible-app-ms
-  labels:
-    app.kubernetes.io/name: nautible-app-ms-product
-    app.kubernetes.io/instance: nautible-app-ms-product
-    app.kubernetes.io/version: 1.0.0
-    app.kubernetes.io/component: app
-    app.kubernetes.io/part-of: nautible
-    app.kubernetes.io/managed-by: manual
 spec:
   replicas: 1
   template:
     spec:
       containers:
         - name: nautible-app-ms-product
-          image: ogis/nautible-app-ms-product:latest
-          imagePullPolicy: IfNotPresent
           env:
             - name: QUARKUS_PROFILE
               value: local-dev
