@@ -1,0 +1,62 @@
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: nautible-app-ms-product-mysql-sts
+  namespace: nautible-app-ms
+  labels:
+    app.kubernetes.io/name: nautible-app-ms-product-mysql
+    app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
+    app.kubernetes.io/version: 1.0.0
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: nautible
+    app.kubernetes.io/managed-by: manual
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
+      app.kubernetes.io/component: database
+  serviceName: nautible-app-ms-product-mysql
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nautible-app-ms-product-mysql
+        app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
+        app.kubernetes.io/version: 1.0.0
+        app.kubernetes.io/component: database
+        app.kubernetes.io/part-of: nautible
+        app.kubernetes.io/managed-by: manual
+    spec:
+      containers:
+        - name: nautible-app-ms-product-mysql
+          image: nautible-app-ms-product-mysql:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 3306
+          volumeMounts:
+            - name: nautible-app-ms-product-mysql-data-pvc
+              mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DATABASE_PW
+  volumeClaimTemplates:
+    - metadata:
+        name: nautible-app-ms-product-mysql-data-pvc
+        labels:
+          app.kubernetes.io/name: nautible-app-ms-product-mysql
+          app.kubernetes.io/instance: nautible-app-ms-product-mysql-1
+          app.kubernetes.io/version: 1.0.0
+          app.kubernetes.io/component: database
+          app.kubernetes.io/part-of: nautible
+          app.kubernetes.io/managed-by: manual
+      spec:
+        storageClassName: standard
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
