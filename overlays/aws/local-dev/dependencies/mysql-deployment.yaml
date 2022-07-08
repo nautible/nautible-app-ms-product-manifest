@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: nautible-app-ms-product-mysql
-          image: ogis/nautible-app-ms-product-mysql:latest
+          image: nautible-app-ms-product-mysql:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

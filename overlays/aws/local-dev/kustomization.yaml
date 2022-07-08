@@ -1,6 +1,5 @@
 bases:
-  - ../../base
+  - ../../../base
 patchesStrategicMerge:
   - product-deployment.yaml
-resources:
-  - istio-network.yaml
+  - product-service.yaml
