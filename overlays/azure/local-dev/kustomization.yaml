@@ -1,10 +1,5 @@
 bases:
   - ../../../base
-resources:
-  - mysql-configmap.yaml
-  - mysql-deployment.yaml
-  - mysql-secret.yaml
-  - mysql-service.yaml
 patchesStrategicMerge:
   - product-deployment.yaml
   - product-service.yaml
