@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nautible-app-ms-product
-          image: public.ecr.aws/nautible/nautible-app-ms-product:c22aca17326db22002b96ed198f26e7c602f58cf
+          image: public.ecr.aws/nautible/nautible-app-ms-product:a22b00c13bde52e5cb315260232b0bdb4ccbec7d
           imagePullPolicy: Always
           env:
             - name: QUARKUS_PROFILE
