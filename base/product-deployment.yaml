@@ -26,6 +26,8 @@ spec:
         app.kubernetes.io/component: app
         app.kubernetes.io/part-of: nautible
         app.kubernetes.io/managed-by: manual
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: 'true'
     spec:
       containers:
         - name: nautible-app-ms-product
