@@ -34,5 +34,4 @@ spec:
             - name: http
               protocol: TCP
               containerPort: 8080
-      serviceAccount: nautible-app-ms-sa
-      serviceAccountName: nautible-app-ms-sa
+status: {}
